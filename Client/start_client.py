@@ -28,7 +28,9 @@ if __name__ == '__main__':
     # while loop to allow for safe restart of connect instead of error when remote system isn't responding
     while True:
         try:
+            print("attempting to connect to server")
             c.retrieve_starting_variables()
+            print("connection established\nPress Crtl+c to exit")
             # loop to continuously check directory and act should any changes occur
             while True:
                 c.check_directory()

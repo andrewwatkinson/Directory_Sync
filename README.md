@@ -50,4 +50,24 @@ optional arguments:
 
 ```
 
-When Assigning a custom port please be sure this is consistent across both the server and the client
+When Assigning a custom port please be sure this is consistent across both the server and the client.
+
+The Sensitivity setting is used to dictate the number of segments that are checked
+to efficiently detect whether a file is partially similar to a file already in the
+destination directory. Larger values may decrease speed of execution with very large files.
+
+## Current Features
+* Detection of new files in source and subsequent transfer of these files
+* Multiple transfers of the same files is prevented using a hashing based method with hash algorithm chosen to reduce likelihood of collision errors
+* partial file similarity detection (with limitations discussed below)
+
+## Shortcomings / Features to add
+### Shortcomings
+* sub-directories are not accounted for in the source directory, therefore, all files are copied
+to the root of the of the destination directory
+* partial file similarity checking uses segmented files for hash comparison, this
+leads to the potential for missed instances of similarity where data is added at the beginning of a file, thus changing all following hash values and providing a false positive
+
+### Features to add
+* Add ability to replicate sub directories that are present in source folder when transferred to Server
+* Allow for detection of easy to parse text files for more accurate partial similarity detection in these instances
