@@ -1,5 +1,6 @@
 # Directory Sync
 Python based solution for directory synchronisation over IP
+* Time spent on project so far 5.5 hours
 
 ## Installation
 
